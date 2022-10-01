@@ -12,11 +12,17 @@ namespace POO_CSharp_OOP
         private int num;
         private string cep;
 
-        public Endereco(string rua, string estado, string cep)
+        public Endereco(string rua, string estado, string cep, int num)
         {
             this.rua = rua;
             this.estado = estado;
             this.cep = cep;
+            this.num = num;
+        }
+
+        public string toString()
+        {
+            return this.rua + " ; " + this.estado + " ; " + this.num + " ; " + this.cep;
         }
     }
 }
