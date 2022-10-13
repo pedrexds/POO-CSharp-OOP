@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace POO_CSharp_OOP
 {
     public class Tinteiro : Caneta
@@ -35,7 +30,7 @@ namespace POO_CSharp_OOP
 
         public override void apagar()
         {
-            Console.WriteLine("Não é possível apagar.");
+            throw new NotSupportedException("Tinteiro não apaga.");
         }
     }
 }

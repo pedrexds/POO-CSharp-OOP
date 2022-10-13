@@ -1,4 +1,4 @@
-/*using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +21,23 @@ namespace POO_CSharp_OOP
         public ArrayList ler()
         {
             ArrayList linhas = new ArrayList();
-            StreamReader leitor = new StreamReader(this.caminhoArquivo);
-            //StreamWriter x = File.CreateText(this.caminhoArquivo);
 
-            linhas = File.ReadAllLines();
+            try
+            {
+                linhas.Add(File.ReadAllLines(this.caminhoArquivo));
+            }
+            catch(FileNotFoundException f)
+            {
+                f.ToString();
+            }
+            return linhas;
         }
+        /*
+        public void escrever(ArrayList linhas)
+        {
+            TextWriter tw;
+            
+        }
+        */
     }
-}*/
+}

@@ -1,8 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace POO_CSharp_OOP
 {
@@ -25,23 +21,6 @@ namespace POO_CSharp_OOP
                 }
             }
             throw new Exception("Caneta não encontrada");
-        }
-
-        public Caneta insereCaneta(string modelo, string marca, string cor, float capacidadeTotal, float espessura, float comprimento, bool tampa, float valor)
-        {
-            /*Caneta can = this.buscar(modelo);
-
-            if(can != null)
-            {
-                return can;
-            }
-            else
-            {
-                can = new Caneta(modelo, marca, cor, capacidadeTotal, espessura, comprimento, tampa, valor);
-                this.lista.Add(can);
-                return can;
-            }*/
-            throw new NotSupportedException("Operação ainda não implementada");
         }
 
         public Caneta insereCaneta(Caneta novaCaneta)

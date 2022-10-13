@@ -1,8 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace POO_CSharp_OOP
 {
@@ -15,7 +11,19 @@ namespace POO_CSharp_OOP
             this.lista = new ArrayList();
         }
         
-        private Cliente buscar(string cpf)
+        private Cliente buscar(string cpf, string rg) //Sobrecarga de função
+        {
+            foreach(Cliente cli in this.lista)
+            {
+                if(cli.igual(cpf, rg))
+                {
+                    return cli;
+                }
+            }
+            throw new Exception("Cliente não encontrado.");
+        }
+        
+        private Cliente buscar(string cpf) //Sobrecarga de função
         {
             foreach(Cliente cli in this.lista)
             {
@@ -27,7 +35,8 @@ namespace POO_CSharp_OOP
             throw new Exception("Cliente não encontrado.");
         }
         
-        public Cliente insereCliente(string nome, string cpf, string rua, string estado, int num, string cep)
+        
+        public Cliente insereCliente(string nome, string cpf, string rg, string rua, string estado, int num, string cep)
         {
             Cliente cli = this.buscar(cpf);
 
@@ -37,7 +46,7 @@ namespace POO_CSharp_OOP
             }
             else
             {
-                cli = new Cliente(nome, cpf, rua, estado, cep, num);
+                cli = new Cliente(nome, cpf, rg, rua, estado, cep, num);
                 this.lista.Add(cli);
                 return cli;
             }

@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace POO_CSharp_OOP
 {
     public class ProblemaPagar : SystemException
@@ -24,7 +19,7 @@ namespace POO_CSharp_OOP
                         {
                             throw new NullReferenceException("Objeto nulo, mesma opção de pagamento escolhida: À vista");
                         }
-                        return new Vista(obj.getValor(), obj .getDataPgto());
+                        return new Vista(obj.getValor(), obj.getDataPgto());
 
                 case 2: if(typeof(Prazo).IsInstanceOfType(obj))
                         {

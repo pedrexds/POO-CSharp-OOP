@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace POO_CSharp_OOP
 {
     public class MarcaTexto : Caneta // "MarcaTexto extends Caneta" no Java
@@ -64,7 +59,7 @@ namespace POO_CSharp_OOP
 
         public override void apagar()
         {
-            throw new NotSupportedException("Operação ainda não implementada");
+            throw new NotSupportedException("Marca Texto não apaga");
         }
     }
 }

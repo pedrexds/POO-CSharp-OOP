@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace POO_CSharp_OOP
 {
     public abstract class Caneta : Funcionalidades //"Caneta implements Funcionalidades" no Java
@@ -17,10 +12,7 @@ namespace POO_CSharp_OOP
         protected float comprimento;
         protected float valor;
         protected string tipoCaneta;
-        //private int quantidade;
-    
-        //Método Construtor
-        public Caneta(string modelo, string marca, string cor, float capacidadeTotal, float espessura, float comprimento, float valor)
+        public Caneta(string modelo, string marca, string cor, float capacidadeTotal, float espessura, float comprimento, float valor) //Construtor
         {
             this.modelo = modelo;
             this.marca = marca;
@@ -43,17 +35,17 @@ namespace POO_CSharp_OOP
             return this.modelo.Equals(caneta.getModelo()) && this.marca.Equals(caneta.getMarca());
         }
 
-        public string getModelo()
+        public string getModelo() //getter
         {
             return this.modelo;
         }
 
-        public string getMarca()
+        public string getMarca() //getter
         {
             return this.marca;
         }
 
-        public float getCapacidadeTotal()
+        public float getCapacidadeTotal() //getter
         {
             return this.capacidadeTotal;
         }
@@ -82,6 +74,30 @@ namespace POO_CSharp_OOP
                 "\nCapacidade Atual: " + this.capacidadeAtual +
                 "\nEspessura: " + this.espessura +
                 "\nComprimento: " + this.comprimento;
+        }
+
+        public static bool operator > (Caneta a, Caneta b) //Sobrecarga de operador
+        {
+            if(a.comprimento > b.comprimento)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool operator < (Caneta a, Caneta b)//Sobrecarga de operador
+        {                                                 //Obrigatória para complementar a anterior
+            if(a.comprimento < b.comprimento)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public abstract bool escrever();
