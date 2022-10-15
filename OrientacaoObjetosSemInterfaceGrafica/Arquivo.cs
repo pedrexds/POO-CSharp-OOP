@@ -1,9 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.IO;
 
 namespace POO_CSharp_OOP
 {
@@ -18,26 +13,51 @@ namespace POO_CSharp_OOP
             this.caminhoArquivo = caminhoArquivo;
         }
 
-        public ArrayList ler()
+        public void ler()
         {
-            ArrayList linhas = new ArrayList();
-
+            string linha;
             try
             {
-                linhas.Add(File.ReadAllLines(this.caminhoArquivo));
+                StreamReader sr = new StreamReader(this.caminhoArquivo);
+
+                linha = sr.ReadLine();
+
+                while(linha != null)
+                {
+                    Console.WriteLine(linha);
+                    linha = sr.ReadLine();
+                }
+
+                sr.Close();
+                Console.ReadLine();
             }
-            catch(FileNotFoundException f)
+            catch(Exception e)
             {
-                f.ToString();
+                Console.WriteLine("Exception: " + e.Message);
             }
-            return linhas;
+            finally
+            {
+                Console.WriteLine("Executando bloco 'finally'");
+            }
         }
-        /*
+        
         public void escrever(ArrayList linhas)
         {
-            TextWriter tw;
-            
+            try
+            {
+                StreamWriter sw = new StreamWriter(this.caminhoArquivo);
+                sw.WriteLine("Olá mundo!");
+                sw.WriteLine("Da classe StreamWriter.");
+                sw.Close();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Exception: " + e.Message);
+            }
+            finally
+            {
+                Console.WriteLine("Executando bloco 'finally'");
+            }
         }
-        */
     }
 }
